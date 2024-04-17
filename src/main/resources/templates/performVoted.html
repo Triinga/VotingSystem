@@ -3,12 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          background-color: #f4f4f4;
+        }
+        .candidate {
+          margin-bottom: 10px;
+        }
+        .candidate a {
+          color: #0366d6;
+          text-decoration: none;
+        }
+    </style>
 </head>
 <body>
-<div th:each ="candidate : ${candidates}">
-    click to vote for:
-    <a th:href="@{voteFor(id=${candidate.id})}" th:text="${candidate.name}"></a>
-
+<div>
+    <h2>Candidates</h2>
+    <ul>
+        <div th:each="candidate : ${candidates}" class="candidate">
+            <li>
+                Click to vote for: <a th:href="@{voteFor(id=${candidate.id})}" th:text="${candidate.name}"></a>
+            </li>
+        </div>
+    </ul>
 </div>
 </body>
 </html>
